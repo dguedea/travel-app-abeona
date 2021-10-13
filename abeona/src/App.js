@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CityForm from "./components/CityForm";
 import WeatherOutput from "./components/WeatherOutput";
+import CityName from "./components/CityName";
 
 import "./App.css";
 
@@ -25,6 +26,7 @@ function App() {
       />
       <div className="all-outputs">
         <br></br>
+        <CityName destination={cityInput} />
         <WeatherOutput destination={cityInput} />
         <br></br>
       </div>

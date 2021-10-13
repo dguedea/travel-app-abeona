@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat&family=Open+Sans&display=swap");
+
+.city-welcome {
+  text-align: center;
+  /* color: white; */
+  font-family: "Fjalla One", sans-serif;
+  font-size: 30px;
+  color: #ffffff;
+  text-shadow: 3px 3px 0 black;
+  padding: 10px;
+}
