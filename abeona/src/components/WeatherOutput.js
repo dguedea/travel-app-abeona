@@ -26,18 +26,16 @@ const WeatherOutput = (props) => {
 
   return (
     <React.Fragment>
+        <div className="city-weather-item">
       {error && <p>Cannot fetch weather data</p>}
       {(typeof weather.main != "undefined") ? (<div>
         <h2>Weather in {props.destination.destCity}</h2>
+        <div className="city-weather-description">
         <p>{weather.main.temp} degrees Fahrenheit</p>
         <p>It is {weather.weather[0].main}</p>
+        </div>
       </div>) : ('')}
-      {/* {!error && <p>{weather.main.temp}</p>} */}
-      {/* <div>
-        <h2>Weather in {props.destination.destCity}</h2>
-        <p>{weather.main.temp} degrees Fahrenheit</p>
-        <p>It is {weather.weather[0].main}</p>
-      </div> */}
+      </div>
     </React.Fragment>
   );
 };
