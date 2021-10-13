@@ -5,7 +5,7 @@ import WeatherOutput from './components/WeatherOutput';
 import "./App.css";
 
 function App() {
-  const [cityInput, setCityInput] = useState({homeCity: 'New York', destCity: 'New York'});
+  const [cityInput, setCityInput] = useState({});
 
   const citySearchHandler = (home, destination) => {
     setCityInput({homeCity: home, destCity: destination})

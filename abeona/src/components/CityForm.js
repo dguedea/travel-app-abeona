@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import "./CityForm.css";
 
 const CityForm = (props) => {
-  const [enteredHome, setEnteredHome] = useState("");
-  const [enteredDest, setEnteredDest] = useState("");
+  const [enteredHome, setEnteredHome] = useState('');
+  const [enteredDest, setEnteredDest] = useState('');
 
   const homeCityChangeHandler = (event) => {
     setEnteredHome(event.target.value);
