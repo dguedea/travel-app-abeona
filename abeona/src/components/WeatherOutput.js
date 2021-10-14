@@ -6,6 +6,8 @@ const WeatherOutput = (props) => {
   const apikey = "927e91ee96236b7cd9c406dd5a8ee5e7";
   const [weather, setWeather] = useState("");
   const [error, setError] = useState("");
+  const [latitude, setLatitude] = useState();
+  const [longitude, setLongitude] = useState();
 
   console.log(props.destination.destCity);
 

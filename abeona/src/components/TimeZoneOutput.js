@@ -9,20 +9,22 @@ const TimeZoneOutput = (props) => {
 
   console.log(props.destination.destCity);
 
-//   useEffect(() => {
-//     fetch(
-//       ``
-//     )
-//       .then((response) => response.json())
-//       .then((result) => {
-//         setTime(result);
-//         console.log(result);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//         setError(error);
-//       });
-//   }, [props.destination]);
+  
+
+  // useEffect(() => {
+  //   fetch(
+  //     `http://api.timezonedb.com/v2.1/get-time-zone?key=${apikey}&format=json&by=zone&zone=America/${props.destination.destCity}`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       setTime(result);
+  //       console.log(result);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       setError(error);
+  //     });
+  // }, [props.destination]);
 
   return (
     <React.Fragment>
