@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CityForm from "./components/CityForm";
 import WeatherOutput from "./components/WeatherOutput";
 import CityName from "./components/CityName";
+import TimeZoneOutput from './components/TimeZoneOutput';
 
 import "./App.css";
 
@@ -28,6 +29,7 @@ function App() {
         <br></br>
         <CityName destination={cityInput} />
         <WeatherOutput destination={cityInput} />
+        <TimeZoneOutput destination={cityInput} />
         <br></br>
       </div>
     </React.Fragment>
