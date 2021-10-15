@@ -46,6 +46,7 @@ const WeatherOutput = (props) => {
         <p>It is {weather.weather[0].main}</p>
         </div>
       </div>) : ('')}
+      {/* Include modal pop up if weather not found */}
       </div>
       <TimeZoneOutput latitude={latitude} longitude={longitude} cityInput={cityInput}/>
     </React.Fragment>
