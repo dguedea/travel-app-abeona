@@ -6,10 +6,8 @@ const WeatherOutput = (props) => {
   const apikey = "927e91ee96236b7cd9c406dd5a8ee5e7";
   const [weather, setWeather] = useState("");
   const [error, setError] = useState("");
-  const [latitude, setLatitude] = useState();
   const [longitude, setLongitude] = useState();
-
-  console.log(props.destination.destCity);
+  const [latitude, setLatitude] = useState();
 
   useEffect(() => {
     fetch(
@@ -18,6 +16,9 @@ const WeatherOutput = (props) => {
       .then((response) => response.json())
       .then((result) => {
         setWeather(result);
+        setLatitude(result.coord.lat);
+        setLongitude(result.coord.lon);
+        setLatLong(latitude, longitude);
         console.log(result);
       })
       .catch((error) => {
@@ -26,10 +27,15 @@ const WeatherOutput = (props) => {
       });
   }, [props.destination]);
 
+  const setLatLong = (lat, lon) => {
+    props.latLongHandler(lat, lon);
+  }
+
+
   return (
     <React.Fragment>
         <div className="city-weather-item">
-      {error && <p>Cannot fetch weather data</p>}
+      {/* {error && <p>Cannot fetch weather data</p>} */}
       {(typeof weather.main != "undefined") ? (<div>
         <h2>Weather in {props.destination.destCity}</h2>
         <div className="city-weather-description">

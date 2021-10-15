@@ -2,15 +2,21 @@ import React, { useState } from "react";
 import CityForm from "./components/CityForm";
 import WeatherOutput from "./components/WeatherOutput";
 import CityName from "./components/CityName";
-import TimeZoneOutput from './components/TimeZoneOutput';
+import TimeZoneOutput from "./components/TimeZoneOutput";
 
 import "./App.css";
 
 function App() {
   const [cityInput, setCityInput] = useState({});
+  const [latLong, setLatLong] = useState({});
 
   const citySearchHandler = (home, destination) => {
     setCityInput({ homeCity: home, destCity: destination });
+  };
+
+  const latLongHandler = (lat, long) => {
+    setLatLong({ latitude: lat, longitude: long });
+    console.log(latLong);
   };
 
   return (
@@ -28,7 +34,12 @@ function App() {
       <div className="all-outputs">
         <br></br>
         <CityName destination={cityInput} />
-        <WeatherOutput destination={cityInput} />
+        <WeatherOutput
+          destination={cityInput}
+          setLatLong={setLatLong}
+          latLongHandler={latLongHandler}
+          latLong={latLong}
+        />
         <TimeZoneOutput destination={cityInput} />
         <br></br>
       </div>
