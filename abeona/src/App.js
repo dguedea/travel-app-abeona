@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CityForm from "./components/CityForm";
 import WeatherOutput from "./components/WeatherOutput";
 import CityName from "./components/CityName";
-import TimeZoneOutput from "./components/TimeZoneOutput";
+import CityHistory from "./components/CityHistory";
 
 import "./App.css";
 
@@ -35,12 +35,8 @@ function App() {
         <br></br>
         <CityName destination={cityInput} />
         <WeatherOutput
-          destination={cityInput}
-          // setLatLong={setLatLong}
-          // latLongHandler={latLongHandler}
-          // latLong={latLong}
-        />
-        {/* <TimeZoneOutput destination={cityInput} /> */}
+          destination={cityInput} />
+        <CityHistory destination={cityInput}/>
         <br></br>
       </div>
     </React.Fragment>
