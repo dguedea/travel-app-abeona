@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TimeZoneOutput from './TimeZoneOutput';
+import TimeZoneOutput from "./TimeZoneOutput";
 
 import "./WeatherOutput.css";
 
@@ -9,6 +9,7 @@ const WeatherOutput = (props) => {
   const [error, setError] = useState("");
   const [longitude, setLongitude] = useState();
   const [latitude, setLatitude] = useState();
+  const [weatherIcon, setWeatherIcon] = useState();
   const [cityInput, setcityInput] = useState({});
 
   useEffect(() => {
@@ -21,6 +22,11 @@ const WeatherOutput = (props) => {
         setLatitude(result.coord.lat);
         setLongitude(result.coord.lon);
         setcityInput(props.destination);
+        setWeatherIcon(
+          "http://openweathermap.org/img/wn/" +
+            result.weather[0].icon +
+            "@2x.png"
+        );
         // setLatLong(latitude, longitude);
         console.log(result);
       })
@@ -34,21 +40,31 @@ const WeatherOutput = (props) => {
   //   props.latLongHandler(lat, lon);
   // }
 
-
   return (
     <React.Fragment>
-        <div className="city-weather-item">
-      {/* {error && <p>Cannot fetch weather data</p>} */}
-      {(typeof weather.main != "undefined") ? (<div>
-        <h2>Weather in {props.destination.destCity}</h2>
-        <div className="city-weather-description">
-        <p>{weather.main.temp} degrees Fahrenheit</p>
-        <p>It is {weather.weather[0].main}</p>
-        </div>
-      </div>) : ('')}
-      {/* Include modal pop up if weather not found */}
+      <div className="city-weather-item">
+        {/* {error && <p>Cannot fetch weather data</p>} */}
+        {typeof weather.main != "undefined" ? (
+          <div>
+            <h2>Weather in {props.destination.destCity}</h2>
+            <div className="city-weather">
+              <img src={weatherIcon} />
+            </div>
+
+            <div className="city-temp">
+              <p>{Math.round(weather.main.temp)} ° F</p>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {/* Include modal pop up if weather not found */}
       </div>
-      <TimeZoneOutput latitude={latitude} longitude={longitude} cityInput={cityInput}/>
+      <TimeZoneOutput
+        latitude={latitude}
+        longitude={longitude}
+        cityInput={cityInput}
+      />
     </React.Fragment>
   );
 };
