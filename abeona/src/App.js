@@ -8,16 +8,16 @@ import "./App.css";
 
 function App() {
   const [cityInput, setCityInput] = useState({});
-  const [latLong, setLatLong] = useState({});
+  // const [latLong, setLatLong] = useState({});
 
   const citySearchHandler = (home, destination) => {
     setCityInput({ homeCity: home, destCity: destination });
   };
 
-  const latLongHandler = (lat, long) => {
-    setLatLong({ latitude: lat, longitude: long });
-    console.log(latLong);
-  };
+  // const latLongHandler = (lat, long) => {
+  //   setLatLong({ latitude: lat, longitude: long });
+  //   console.log(latLong);
+  // };
 
   return (
     <React.Fragment>
@@ -36,11 +36,11 @@ function App() {
         <CityName destination={cityInput} />
         <WeatherOutput
           destination={cityInput}
-          setLatLong={setLatLong}
-          latLongHandler={latLongHandler}
-          latLong={latLong}
+          // setLatLong={setLatLong}
+          // latLongHandler={latLongHandler}
+          // latLong={latLong}
         />
-        <TimeZoneOutput destination={cityInput} />
+        {/* <TimeZoneOutput destination={cityInput} /> */}
         <br></br>
       </div>
     </React.Fragment>

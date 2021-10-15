@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import TimeZoneOutput from './TimeZoneOutput';
 
 import "./WeatherOutput.css";
 
@@ -8,6 +9,7 @@ const WeatherOutput = (props) => {
   const [error, setError] = useState("");
   const [longitude, setLongitude] = useState();
   const [latitude, setLatitude] = useState();
+  const [cityInput, setcityInput] = useState({});
 
   useEffect(() => {
     fetch(
@@ -18,7 +20,8 @@ const WeatherOutput = (props) => {
         setWeather(result);
         setLatitude(result.coord.lat);
         setLongitude(result.coord.lon);
-        setLatLong(latitude, longitude);
+        setcityInput(props.destination);
+        // setLatLong(latitude, longitude);
         console.log(result);
       })
       .catch((error) => {
@@ -27,9 +30,9 @@ const WeatherOutput = (props) => {
       });
   }, [props.destination]);
 
-  const setLatLong = (lat, lon) => {
-    props.latLongHandler(lat, lon);
-  }
+  // const setLatLong = (lat, lon) => {
+  //   props.latLongHandler(lat, lon);
+  // }
 
 
   return (
@@ -44,6 +47,7 @@ const WeatherOutput = (props) => {
         </div>
       </div>) : ('')}
       </div>
+      <TimeZoneOutput latitude={latitude} longitude={longitude} cityInput={cityInput}/>
     </React.Fragment>
   );
 };
