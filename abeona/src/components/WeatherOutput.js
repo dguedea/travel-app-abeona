@@ -49,6 +49,7 @@ const WeatherOutput = (props) => {
             <h2>Weather in {props.destination.destCity}</h2>
             <div className="city-weather">
               <img src={weatherIcon} />
+              <p>{weather.weather[0].main}</p>
             </div>
 
             <div className="city-temp">
