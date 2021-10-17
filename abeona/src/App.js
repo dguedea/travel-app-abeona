@@ -3,6 +3,7 @@ import CityForm from "./components/CityForm";
 import WeatherOutput from "./components/WeatherOutput";
 import CityName from "./components/CityName";
 import CityHistory from "./components/CityHistory";
+import CurrencyConverter from "./components/CurrencyConverter";
 
 import "./App.css";
 
@@ -34,9 +35,10 @@ function App() {
       <div className="all-outputs">
         <br></br>
         <CityName destination={cityInput} />
+        <CityHistory destination={cityInput}/>
         <WeatherOutput
           destination={cityInput} />
-        <CityHistory destination={cityInput}/>
+        <CurrencyConverter destination={cityInput}/>
         <br></br>
       </div>
     </React.Fragment>
