@@ -36,11 +36,10 @@ function App() {
       <div className="all-outputs">
         <br></br>
         <CityName destination={cityInput} />
+        <CityHistory destination={cityInput} />
         <CityImage destination={cityInput} />
-        <CityHistory destination={cityInput}/>
-        <WeatherOutput
-          destination={cityInput} />
-        <CurrencyConverter destination={cityInput}/>
+        <WeatherOutput destination={cityInput} />
+        <CurrencyConverter destination={cityInput} />
         <br></br>
       </div>
     </React.Fragment>
