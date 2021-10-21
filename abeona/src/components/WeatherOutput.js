@@ -28,7 +28,7 @@ const WeatherOutput = (props) => {
             "@2x.png"
         );
         // setLatLong(latitude, longitude);
-        console.log(result);
+        console.log("weather", result);
       })
       .catch((error) => {
         console.log(error);
@@ -36,15 +36,15 @@ const WeatherOutput = (props) => {
       });
   }, [props.destination]);
 
-  // const setLatLong = (lat, lon) => {
-  //   props.latLongHandler(lat, lon);
-  // }
-
+  // Set status if city return failed 
+  
   return (
     <React.Fragment>
       <div className="city-weather-item">
         {/* {error && <p>Cannot fetch weather data</p>} */}
-        {typeof weather.main != "undefined" ? (
+        {typeof props.destination.destCity === "undefined" ? (
+          ""
+        ) : typeof weather.main != "undefined" ? (
           <div>
             <h2>Weather in {props.destination.destCity}</h2>
             <div className="city-weather">
@@ -57,9 +57,18 @@ const WeatherOutput = (props) => {
             </div>
           </div>
         ) : (
-          ""
+          <div className="weather-error">
+            <h2>Weather unavailable</h2>
+            <br></br>
+            <div>
+              Weather for that location is unavailable
+            </div>
+            <div>
+              Please make sure the destination city is spelled correctly & search again
+            </div>
+            <br></br>
+          </div>
         )}
-        {/* Include modal pop up if weather not found */}
       </div>
       <TimeZoneOutput
         latitude={latitude}

@@ -31,3 +31,10 @@
     font-size:44px;
 
   }
+
+  .weather-error{
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    text-align: center;
+    color: rgb(117, 51, 51);
+  }
