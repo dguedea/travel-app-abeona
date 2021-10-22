@@ -42,8 +42,8 @@ function App() {
     <React.Fragment>
       <h1>abeona</h1>
       <h2 className="description">
-        Please enter your hometown and destination and we will display the
-        weather, currency and information about the destination
+        Please enter your hometown and destination cities and we will display the
+        information about the destination like weather, timezone and currency!
       </h2>
       <CityForm
         onCitySearch={citySearchHandler}
