@@ -11,8 +11,7 @@ const CurrencyConverter = (props) => {
         <div className="city-currency-item">
           <h2>Currency Converter</h2>
           <div className="city-currency-description">
-            Currency in {props.destination.destCity} is (incl. from
-            microservice)
+            Currency in {props.destination.destCity} is (CURRENCY)
           </div>
         </div>
       )}
