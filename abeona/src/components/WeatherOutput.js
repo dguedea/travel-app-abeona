@@ -11,6 +11,7 @@ const WeatherOutput = (props) => {
   const [latitude, setLatitude] = useState();
   const [weatherIcon, setWeatherIcon] = useState();
   const [cityInput, setcityInput] = useState({});
+  const [isValid, setIsValid] = useState(0);
 
   useEffect(() => {
     fetch(
@@ -36,8 +37,9 @@ const WeatherOutput = (props) => {
       });
   }, [props.destination]);
 
+
   // Set status if city return failed 
-  
+
   return (
     <React.Fragment>
       <div className="city-weather-item">
