@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import "./TimeZoneOutput.css";
-import clock from "../assets/clock.jpeg";
+import timezone from "../assets/timezone.svg";
 
 const TimeZoneOutput = (props) => {
   const apikey = "OF86B8KNN9JF";
@@ -29,16 +29,14 @@ const TimeZoneOutput = (props) => {
         {time.status != "FAILED" ? (
           <div>
             <h2>Time now in {props.cityInput.destCity}</h2>
-            <div className="clock">
-              <img className="clock-image" src={clock} />
-            </div>
             <div className="city-time-description">
               <p>
                 {time.zoneName}, {time.abbreviation}
               </p>
-              <p>
-                {time.formatted}
-              </p>
+              <p>{time.formatted}</p>
+            </div>
+            <div className="clock">
+              <img className="clock-image" src={timezone} />
             </div>
           </div>
         ) : (
