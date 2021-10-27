@@ -14,7 +14,7 @@ const CityImage = (props) => {
             alt="test image"
           />
           <div className="city-image-description">
-            Grab photo of {props.destination.destCity} from microservice
+            A taste of what {props.destination.destCity} looks like!
           </div>
         </div>
       )}
