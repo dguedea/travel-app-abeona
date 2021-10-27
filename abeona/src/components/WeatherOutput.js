@@ -37,8 +37,7 @@ const WeatherOutput = (props) => {
       });
   }, [props.destination]);
 
-
-  // Set status if city return failed 
+  // Set status if city return failed
 
   return (
     <React.Fragment>
@@ -49,24 +48,29 @@ const WeatherOutput = (props) => {
         ) : typeof weather.main != "undefined" ? (
           <div>
             <h2>Weather in {props.destination.destCity}</h2>
-            <div className="city-weather">
-              <img src={weatherIcon} />
-              <p>{weather.weather[0].main}</p>
-            </div>
+            <div>
+              <div className="city-weather">
+                <img src={weatherIcon} />
+                <p>{weather.weather[0].main}</p>
+              </div>
 
-            <div className="city-temp">
-              <p>{Math.round(weather.main.temp)} ° F</p>
+              <div className="city-temp">
+                <p>{Math.round(weather.main.temp)} ° F</p>
+              </div>
+              {weather.main.temp > 70 && <div>It is warm in {props.destination.destCity}.  We would recommend packing light clothes like a t-shirt and shorts.</div>}
+              {(weather.main.temp <= 70 && weather.main.temp > 40) && <div>It is a bit chilly in {props.destination.destCity}.  We recommend packing a light sweater and jeans.</div>}
+              {weather.main.temp <= 40 && <div>It is cold in {props.destination.destCity}. Make sure to bundle up in a winter jacket and mittens.</div>}
+              <br></br>
             </div>
           </div>
         ) : (
           <div className="weather-error">
             <h2>Weather unavailable</h2>
             <br></br>
+            <div>Weather for that location is unavailable</div>
             <div>
-              Weather for that location is unavailable
-            </div>
-            <div>
-              Please make sure the destination city is spelled correctly & search again
+              Please make sure the destination city is spelled correctly &
+              search again
             </div>
             <br></br>
           </div>
