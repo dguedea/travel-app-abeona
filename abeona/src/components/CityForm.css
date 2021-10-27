@@ -47,3 +47,16 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
+
+.newcity_search_button {
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  font-style: bold;
+  border-radius: 15px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
