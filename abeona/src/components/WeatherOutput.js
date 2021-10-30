@@ -11,7 +11,6 @@ const WeatherOutput = (props) => {
   const [latitude, setLatitude] = useState();
   const [weatherIcon, setWeatherIcon] = useState();
   const [cityInput, setcityInput] = useState({});
-  const [isValid, setIsValid] = useState(0);
 
   useEffect(() => {
     fetch(
@@ -50,7 +49,7 @@ const WeatherOutput = (props) => {
             <h2>Weather in {props.destination.destCity}</h2>
             <div>
               <div className="city-weather">
-                <img src={weatherIcon} />
+                <img src={props.photoIcon} />
                 <p>{weather.weather[0].main}</p>
               </div>
 

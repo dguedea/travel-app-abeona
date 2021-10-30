@@ -13,7 +13,11 @@ function App() {
   const [cityInput, setCityInput] = useState({});
   const [isValid, setIsValid] = useState("");
   const [error, setError] = useState("");
-  // const [latLong, setLatLong] = useState({});
+  const [weather, setWeather] = useState("");
+  const [longitude, setLongitude] = useState();
+  const [latitude, setLatitude] = useState();
+  const [photoIcon, setPhotoIcon] = useState();
+  const [country, setCountry] = useState();
 
   const citySearchHandler = (home, destination) => {
     setCityInput({ homeCity: home, destCity: destination });
@@ -29,6 +33,14 @@ function App() {
         .then((result) => {
           // setLatLong(latitude, longitude);
           setIsValid(result);
+          setWeather(result);
+          setLatitude(result.coord.lat);
+          setLongitude(result.coord.lon);
+          setPhotoIcon(
+            "http://openweathermap.org/img/wn/" +
+              result.weather[0].icon +
+              "@2x.png"
+          );
           console.log("weather", result);
         })
         .catch((error) => {
@@ -42,24 +54,33 @@ function App() {
     <React.Fragment>
       <h1>abeona</h1>
       <h2 className="description">
-        Please enter your hometown and destination cities and we will display the
-        information about the destination like weather, timezone and currency!
+        Please enter your hometown and destination cities and we will display
+        the information about the destination like weather, timezone and
+        currency!
       </h2>
       <CityForm
         onCitySearch={citySearchHandler}
         cityInput={cityInput}
         setCityInput={setCityInput}
       />
-      {typeof cityInput.destCity == "undefined" ? ("") :
-      typeof isValid.main != "undefined" ? (<div className="all-outputs">
-        <br></br>
-        <CityName destination={cityInput} />
-        <CityHistory destination={cityInput} />
-        <CityImage destination={cityInput} />
-        <WeatherOutput destination={cityInput} />
-        <CurrencyConverter destination={cityInput} />
-        <br></br>
-      </div>) : <h2 className="error-city">Could not fetch city data, please ensure the destination is spelled correctly & exists</h2>}
+      {typeof cityInput.destCity == "undefined" ? (
+        ""
+      ) : typeof isValid.main != "undefined" ? (
+        <div className="all-outputs">
+          <br></br>
+          <CityName destination={cityInput} />
+          <CityHistory destination={cityInput} />
+          <CityImage destination={cityInput} />
+          <WeatherOutput destination={cityInput} photoIcon = {photoIcon}/>
+          <CurrencyConverter destination={cityInput} />
+          <br></br>
+        </div>
+      ) : (
+        <h2 className="error-city">
+          Could not fetch city data, please ensure the destination is spelled
+          correctly & exists
+        </h2>
+      )}
     </React.Fragment>
   );
 }
