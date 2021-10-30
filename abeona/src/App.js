@@ -36,12 +36,14 @@ function App() {
           setWeather(result);
           setLatitude(result.coord.lat);
           setLongitude(result.coord.lon);
+          setCountry(result.sys.country);
           setPhotoIcon(
             "http://openweathermap.org/img/wn/" +
               result.weather[0].icon +
               "@2x.png"
           );
           console.log("weather", result);
+          console.log("country", result.sys.country);
         })
         .catch((error) => {
           console.log(error);
@@ -71,7 +73,7 @@ function App() {
           <CityName destination={cityInput} />
           <CityHistory destination={cityInput} />
           <CityImage destination={cityInput} />
-          <WeatherOutput destination={cityInput} photoIcon = {photoIcon}/>
+          <WeatherOutput destination={cityInput} photoIcon = {photoIcon} country={country}/>
           <CurrencyConverter destination={cityInput} />
           <br></br>
         </div>
