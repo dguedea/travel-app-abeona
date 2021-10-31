@@ -5,6 +5,7 @@ import CityName from "./components/CityName";
 import CityHistory from "./components/CityHistory";
 import CurrencyConverter from "./components/CurrencyConverter";
 import CityImage from "./components/CityImage";
+import TestWeather from "./components/TestWeather";
 
 import "./App.css";
 
@@ -73,7 +74,8 @@ function App() {
           <CityName destination={cityInput} />
           <CityHistory destination={cityInput} />
           <CityImage destination={cityInput} />
-          <WeatherOutput destination={cityInput} photoIcon = {photoIcon} country={country}/>
+          <TestWeather destination={cityInput} photoIcon = {photoIcon} country={country}/>
+          {/* <WeatherOutput destination={cityInput} photoIcon = {photoIcon} country={country}/> */}
           <CurrencyConverter destination={cityInput} />
           <br></br>
         </div>
