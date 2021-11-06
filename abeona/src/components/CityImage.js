@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import "./CityImage.css";
-import airplane from "../assets/airplane.jpg";
 
 const CityImage = (props) => {
 

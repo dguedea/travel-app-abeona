@@ -4,7 +4,6 @@ import TimeZoneOutput from "./TimeZoneOutput";
 import "./TestWeather.css";
 
 const TestWeather = (props) => {
-  const apikey = "927e91ee96236b7cd9c406dd5a8ee5e7";
   const [weather, setWeather] = useState("");
   const [error, setError] = useState("");
   const [longitude, setLongitude] = useState();
@@ -19,7 +18,6 @@ const TestWeather = (props) => {
       .then((response) => response.json())
       .then((result) => {
         setWeather(result);
-        // setLatLong(latitude, longitude);
         console.log("weather", result);
       })
       .catch((error) => {
