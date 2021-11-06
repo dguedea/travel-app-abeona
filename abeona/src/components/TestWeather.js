@@ -46,9 +46,9 @@ const TestWeather = (props) => {
               <div className="city-temp">
                 <p>{Math.round(weather.Temp)} ° F</p>
               </div>
-              {weather.Temp > 70 && <div>It is warm in {props.destination.destCity}.  We would recommend packing light clothes like a t-shirt and shorts.</div>}
+              {weather.Temp > 70 && <div>It is particularly warm in {props.destination.destCity}.  We would recommend packing light clothes like a t-shirt and shorts.</div>}
               {(weather.Temp <= 70 && weather.Temp > 40) && <div>It is a bit chilly in {props.destination.destCity}.  We recommend packing a light sweater and jeans.</div>}
-              {weather.Temp <= 40 && <div>It is cold in {props.destination.destCity}. Make sure to bundle up in a winter jacket and mittens.</div>}
+              {weather.Temp <= 40 && <div>It is quite cold in {props.destination.destCity}. Make sure to bundle up in a winter jacket and mittens.</div>}
               <br></br>
             </div>
           </div>
