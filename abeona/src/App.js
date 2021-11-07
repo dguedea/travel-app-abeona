@@ -76,7 +76,7 @@ function App() {
           <CityImage destination={cityInput} />
           {/* <TestWeather destination={cityInput} photoIcon = {photoIcon} country={country}/> */}
           <WeatherOutput destination={cityInput} photoIcon = {photoIcon} country={country}/>
-          <CurrencyConverter destination={cityInput} />
+          <CurrencyConverter destination={cityInput} country={country} />
           <br></br>
         </div>
       ) : (
