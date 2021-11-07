@@ -23,7 +23,7 @@ const CurrencyConverter = (props) => {
     <React.Fragment>
       {typeof props.destination.destCity != "undefined" && (
         <div className="city-currency-item">
-          <h2>Currency Converter</h2>
+          <h2>Currency Information</h2>
           <div className="city-currency-description">
             Currency in {props.destination.destCity} is {currency.output}
           </div>
