@@ -1,3 +1,9 @@
+/*
+* Name: TimeZoneOutput
+* Description: Displays current timezone of destination city
+* Takes: destination city input from CityForm and fetches timezone information
+* Outputs: component with current timezone of destination and a photo of world
+*/
 import React, { useState, useEffect } from "react";
 
 import "./TimeZoneOutput.css";
@@ -8,6 +14,9 @@ const TimeZoneOutput = (props) => {
   const [time, setTime] = useState("");
   const [error, setError] = useState("");
 
+  // Get request to timezone db api
+  // Sets time with response from output
+  // Only fetches when destination city changes
   useEffect(() => {
     fetch(
       `http://api.timezonedb.com/v2.1/get-time-zone?key=${apikey}&format=json&by=position&lat=${props.latitude}&lng=${props.longitude}`

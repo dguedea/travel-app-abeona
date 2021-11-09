@@ -20,10 +20,15 @@ function App() {
   const [photoIcon, setPhotoIcon] = useState();
   const [country, setCountry] = useState();
 
+  // Sets destination city input from CityForm component
+  // Passes information down to other components in app
   const citySearchHandler = (home, destination) => {
     setCityInput({ homeCity: home, destCity: destination });
   };
 
+  // Fetches destination city 
+  // Main purpose: validate city input (realize this is not optimal) & pass country code data
+  // Could not find city API that did this better
   useEffect(() => {
     console.log("app city", cityInput.destCity);
     if (typeof cityInput.destCity != "undefined") {
@@ -74,12 +79,13 @@ function App() {
           <CityName destination={cityInput} />
           <CityHistory destination={cityInput} />
           <CityImage destination={cityInput} />
-          {/* <TestWeather destination={cityInput} photoIcon = {photoIcon} country={country}/> */}
-          <WeatherOutput destination={cityInput} photoIcon = {photoIcon} country={country}/>
+          <TestWeather destination={cityInput} photoIcon = {photoIcon} country={country}/>
+          {/* <WeatherOutput destination={cityInput} photoIcon = {photoIcon} country={country}/> */}
           <CurrencyConverter destination={cityInput} country={country} />
           <br></br>
         </div>
       ) : (
+        // If there is an error returned from Open Weather Map, display error message and not components
         <h2 className="error-city">
           Could not fetch city data, please ensure the destination is spelled
           correctly & exists

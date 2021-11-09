@@ -1,3 +1,11 @@
+/*
+* Name: WeatherOutput
+* NOTE: this component must replace TestWeather component if plugin not installed!!!
+
+* Description: Displays weather conditions and temperature in destination city
+* Takes: destination city input from CityForm and fetches the weather from Open Weather Map
+* Outputs: component with weather conditions, temperature and pakcing recommendations
+*/
 import React, { useState, useEffect } from "react";
 import TimeZoneOutput from "./TimeZoneOutput";
 
@@ -36,10 +44,10 @@ const WeatherOutput = (props) => {
       });
   }, [props.destination]);
 
-  // Set status if city return failed
 
   return (
     <React.Fragment>
+      {/* If weather is available, display otherwise show error */}
       <div className="city-weather-item">
         {/* {error && <p>Cannot fetch weather data</p>} */}
         {typeof props.destination.destCity === "undefined" ? (
@@ -56,6 +64,7 @@ const WeatherOutput = (props) => {
               <div className="city-temp">
                 <p>{Math.round(weather.main.temp)} ° F</p>
               </div>
+              {/* Conditional statements to output packing recommendations based on temperature in city */}
               {weather.main.temp > 70 && <div>It is warm in {props.destination.destCity}.  We would recommend packing light clothes like a t-shirt and shorts.</div>}
               {(weather.main.temp <= 70 && weather.main.temp > 40) && <div>It is a bit chilly in {props.destination.destCity}.  We recommend packing a light sweater and jeans.</div>}
               {weather.main.temp <= 40 && <div>It is cold in {props.destination.destCity}. Make sure to bundle up in a winter jacket and mittens.</div>}
@@ -75,6 +84,7 @@ const WeatherOutput = (props) => {
           </div>
         )}
       </div>
+      {/* Send data to timezone component  */}
       <TimeZoneOutput
         latitude={latitude}
         longitude={longitude}

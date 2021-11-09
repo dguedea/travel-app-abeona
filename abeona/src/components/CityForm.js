@@ -1,3 +1,10 @@
+/*
+* Name: CityForm
+* Description: Displays a contact form to user.  Gathers user input for home and destination
+* city and passes that information back to the App component for other components to use
+* If contact form is submitted, collapses form until users chooses to search again
+*/
+
 import React, { useState } from "react";
 
 import "./CityForm.css";
@@ -7,22 +14,27 @@ const CityForm = (props) => {
   const [enteredDest, setEnteredDest] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
+  // Pops up contact form when IsEditing is true
   const startEditingHandler = () => {
     setIsEditing(true);
   };
 
+  // Collapses contact form when IsEditing is false
   const stopEditingHandler = () => {
     setIsEditing(false);
   };
 
+  // Sets home city to pass to app component
   const homeCityChangeHandler = (event) => {
     setEnteredHome(event.target.value);
   };
 
+  // Sets destination city to pass to app component
   const destCityChangeHandler = (event) => {
     setEnteredDest(event.target.value);
   };
 
+  // Takes input from contact form and stores in onCitySearch variable
   const searchCityHandler = (event) => {
     event.preventDefault();
     if (enteredHome.trim().length === 0 || enteredDest.trim().length === 0) {

@@ -1,3 +1,9 @@
+/*
+* Name: CurrencyConverter
+* Description: Displays currency used in destination city
+* Takes: country code input from App component
+* Outputs: component with used currency in the country of the destination city
+*/
 import React, { useState, useEffect } from "react";
 
 import "./CurrencyConverter.css";
@@ -5,10 +11,11 @@ import "./CurrencyConverter.css";
 const CurrencyConverter = (props) => {
   const [currency, setCurrency] = useState({});
 
+  // Fetch only when country changes (from app component)
+  // Performs GET request to Ben's microservice with country code
+  // Sets Currency variable with response
   useEffect(() => {
-    fetch(
-    `https://flask-heroku99.herokuapp.com/${props.country}`
-    )
+    fetch(`https://flask-heroku99.herokuapp.com/${props.country}`)
       .then((response) => response.json())
       .then((result) => {
         setCurrency(result);
