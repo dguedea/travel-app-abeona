@@ -62,7 +62,7 @@ function App() {
     <React.Fragment>
       <h1>abeona</h1>
       <h2 className="description">
-        Please enter your hometown and destination cities and we will display
+        Please enter the destination city and we will display
         the information about the destination like weather, timezone and
         currency!
       </h2>
