@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import "./CityForm.css";
 
 const CityForm = (props) => {
-  const [enteredHome, setEnteredHome] = useState("");
+  // const [enteredHome, setEnteredHome] = useState("");
   const [enteredDest, setEnteredDest] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
@@ -25,9 +25,9 @@ const CityForm = (props) => {
   };
 
   // Sets home city to pass to app component
-  const homeCityChangeHandler = (event) => {
-    setEnteredHome(event.target.value);
-  };
+  // const homeCityChangeHandler = (event) => {
+  //   setEnteredHome(event.target.value);
+  // };
 
   // Sets destination city to pass to app component
   const destCityChangeHandler = (event) => {
@@ -37,12 +37,12 @@ const CityForm = (props) => {
   // Takes input from contact form and stores in onCitySearch variable
   const searchCityHandler = (event) => {
     event.preventDefault();
-    if (enteredHome.trim().length === 0 || enteredDest.trim().length === 0) {
+    if (enteredDest.trim().length === 0) {
       return;
     }
-    props.onCitySearch(enteredHome, enteredDest);
+    props.onCitySearch(enteredDest);
     setEnteredDest("");
-    setEnteredHome("");
+    // setEnteredHome("");
     setIsEditing(false);
   };
 
@@ -58,7 +58,7 @@ const CityForm = (props) => {
       {isEditing && (
         <form onSubmit={searchCityHandler}>
           <div className="newcity_controls">
-            <div className="newcity_control">
+            {/* <div className="newcity_control">
               <label htmlFor="home">Enter your Home City</label>
               <input
                 onChange={homeCityChangeHandler}
@@ -66,7 +66,7 @@ const CityForm = (props) => {
                 type="text"
                 value={enteredHome}
               ></input>
-            </div>
+            </div> */}
             <div className="newcity_control">
               <label htmlFor="destination">Enter the Destination City</label>
               <input

@@ -22,8 +22,8 @@ function App() {
 
   // Sets destination city input from CityForm component
   // Passes information down to other components in app
-  const citySearchHandler = (home, destination) => {
-    setCityInput({ homeCity: home, destCity: destination });
+  const citySearchHandler = (destination) => {
+    setCityInput({ destCity: destination });
   };
 
   // Fetches destination city 
