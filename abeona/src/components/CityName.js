@@ -9,7 +9,6 @@ import React from "react";
 
 import './CityName.css';
 
-// Simple component to display the destination city
 const CityName = (props) => {
   return (
     <React.Fragment>
