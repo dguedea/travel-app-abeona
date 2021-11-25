@@ -28,7 +28,10 @@ const TestWeather = (props) => {
       .then((response) => response.json())
       .then((result) => {
         setWeather(result);
+        setLongitude(result.Long);
+        setLatitude(result.Lat);
         console.log("weather", result);
+
       })
       .catch((error) => {
         console.log(error);
@@ -39,7 +42,6 @@ const TestWeather = (props) => {
   return (
     <React.Fragment>
       <div className="city-weather-item">
-        {/* {error && <p>Cannot fetch weather data</p>} */}
         {typeof props.destination.destCity === "undefined" ? (
           ""
         ) : typeof weather.City != "undefined" ? (

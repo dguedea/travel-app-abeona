@@ -24,7 +24,7 @@ const TimeZoneOutput = (props) => {
       .then((response) => response.json())
       .then((result) => {
         setTime(result);
-        console.log(result);
+        console.log("time zone", result);
       })
       .catch((error) => {
         console.log(error);
