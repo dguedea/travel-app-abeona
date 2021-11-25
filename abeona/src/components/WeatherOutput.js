@@ -20,9 +20,11 @@ const WeatherOutput = (props) => {
   const [weatherIcon, setWeatherIcon] = useState();
   const [cityInput, setcityInput] = useState({});
 
+  const api = `https://api.openweathermap.org/data/2.5/weather?q=${props.destination.destCity}&units=imperial&appid=${apikey}`
+
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${props.destination.destCity}&units=imperial&appid=${apikey}`
+      api
     )
       .then((response) => response.json())
       .then((result) => {
@@ -35,7 +37,6 @@ const WeatherOutput = (props) => {
             result.weather[0].icon +
             "@2x.png"
         );
-        // setLatLong(latitude, longitude);
         console.log("weather", result);
       })
       .catch((error) => {
