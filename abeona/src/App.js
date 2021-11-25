@@ -85,7 +85,7 @@ function App() {
           <br></br>
         </div>
       ) : (
-        // If there is an error returned from Open Weather Map, display error message and not components
+        // If there is an error returned from Open Weather Map, display error message and not components 
         <h2 className="error-city">
           Could not fetch city data, please ensure the destination is spelled
           correctly & exists
